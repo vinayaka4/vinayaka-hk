@@ -5,6 +5,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        "blue-gray": "#cbd5e0",
         "deep-blue": "#010026",
         blue: "#2CBCE9",
         red: "#DC4492",
@@ -22,7 +23,9 @@ module.exports = {
           "linear-gradient(90deg, #24CBFF 14.53%, #FC59FF 69.36%, #FFBD0C 117.73%)",
       }),
       bg: {
-        rednortheastern: "#C8102E"
+        rednortheastern: "#C8102E",
+        bluegrey: "#CDB5E0"
+
       },
       fontFamily: {
         playfair: ["Playfair Display", "serif"],

@@ -2,19 +2,26 @@ import { useState } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import useMediaQuery from "../hooks/useMediaQuery";
 
-const Link = ({ page, selectedPage, setSelectedPage }) => {
+const Link = ({ page, selectedPage, setSelectedPage, closeMenu }) => {
     const lowerCasePage = page.toLowerCase();
+    const handleLinkClick = () => {
+        setSelectedPage(lowerCasePage);
+        if (closeMenu) {
+            closeMenu(); // Close the menu if closeMenu is available
+        }
+    };
+
     return (
         <AnchorLink
-            className={`${selectedPage === lowerCasePage ? "text-yellow" : ""} hover:text-yellow transition duration-500`}
-
-
             href={`#${lowerCasePage}`}
-            onClick={() => setSelectedPage(lowerCasePage)}>
+            onClick={handleLinkClick}
+            className={`${selectedPage === lowerCasePage ? "text-yellow" : ""} hover:text-yellow transition duration-500`}
+        >
             {page}
         </AnchorLink>
-    )
-}
+    );
+};
+
 
 const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
     const [isMenuToggled, setIsMenuToggled] = useState(false);
@@ -31,10 +38,12 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
                 {
                     isAboveSmallScreens ? (
                         <div className="flex justify-between gap-16 font-opensans text-sm font-semibold">
+
                             <Link
                                 page="Home"
                                 selectedPage={selectedPage}
-                                setSelectedPage={setSelectedPage} />
+                                setSelectedPage={setSelectedPage}
+                            />
                             <Link
                                 page="Skills"
                                 selectedPage={selectedPage}
@@ -70,7 +79,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
                 {/* Mobile Menu Popup*/}
 
                 {!isAboveSmallScreens && isMenuToggled && (
-                    <div className="fixed right-0 bottom-0 h-full bg-blue w-[300px]">
+                    <div className="fixed right-0 bottom-0 h-full bg-BlueGrey-500 w-[300px]">
                         {/*close ICOn*/}
                         <div className="flex justify-end p-12">
                             <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
@@ -85,27 +94,33 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
                             <Link
                                 page="Home"
                                 selectedPage={selectedPage}
-                                setSelectedPage={setSelectedPage} />
+                                setSelectedPage={setSelectedPage}
+                                closeMenu={() => setIsMenuToggled(false)} />
                             <Link
                                 page="Skills"
                                 selectedPage={selectedPage}
-                                setSelectedPage={setSelectedPage} />
+                                setSelectedPage={setSelectedPage}
+                                closeMenu={() => setIsMenuToggled(false)} />
                             <Link
                                 page="WorkExperience"
                                 selectedPage={selectedPage}
-                                setSelectedPage={setSelectedPage} />
+                                setSelectedPage={setSelectedPage}
+                                closeMenu={() => setIsMenuToggled(false)} />
                             <Link
                                 page="Projects"
                                 selectedPage={selectedPage}
-                                setSelectedPage={setSelectedPage} />
+                                setSelectedPage={setSelectedPage}
+                                closeMenu={() => setIsMenuToggled(false)} />
                             <Link
                                 page="Testimonials"
                                 selectedPage={selectedPage}
-                                setSelectedPage={setSelectedPage} />
+                                setSelectedPage={setSelectedPage}
+                                closeMenu={() => setIsMenuToggled(false)} />
                             <Link
                                 page="Contact"
                                 selectedPage={selectedPage}
-                                setSelectedPage={setSelectedPage} />
+                                setSelectedPage={setSelectedPage}
+                                closeMenu={() => setIsMenuToggled(false)} />
 
 
 

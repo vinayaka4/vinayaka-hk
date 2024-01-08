@@ -60,7 +60,7 @@ const Contact = () => {
                         visible: { opacity: 1, y: 0 },
                     }}
                 >
-                    <img src="linkedin.png" alt="contact" />
+                    <img src="contact.jpg" alt="contact" />
                 </motion.div>
                 <motion.div
                     className='basis-1/2 mt-10 md:mt-0'
@@ -80,7 +80,7 @@ const Contact = () => {
                         action="https://formsubmit.co/53f9fa0e2169ad3c3423843c0a367184"
                         method="post">
                         <input
-                            className='w-full bg-blue font-semibold placeholder:opaque-black p-3'
+                            className='w-full bg-white font-semibold placeholder:opaque-black p-3'
                             type="text"
                             placeholder="Name"
                             {...register("name", {
@@ -95,7 +95,7 @@ const Contact = () => {
                         )
                         }
                         <input
-                            className='w-full bg-blue font-semibold placeholder:opaque-black p-3 mt-5'
+                            className='w-full bg-white font-semibold placeholder:opaque-black p-3 mt-5'
                             type="text"
                             placeholder="EMAIL"
                             {...register("email", {
@@ -109,7 +109,7 @@ const Contact = () => {
                         )
                         }
                         <input
-                            className='w-full bg-blue font-semibold placeholder:opaque-black p-3 mt-5'
+                            className='w-full bg-white font-semibold placeholder:opaque-black p-3 mt-5'
                             type="text"
                             placeholder="MESSAGE"
                             rows="4"
